@@ -1,3 +1,3 @@
-module github.com/Xiezx63/mytools
+module github.com/Hindenburg-dev/mytools
 
 go 1.26.5
