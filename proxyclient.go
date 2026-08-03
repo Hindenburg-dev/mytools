@@ -7,7 +7,7 @@ import (
 )
 
 // Proxy 根据 open 状态返回对应的 http.Client
-func Proxyclient(open bool, proxyattr string) *http.Client {
+func Proxyclient(open bool, proxyattr ...string) *http.Client {
 	// 不开代理直接返回默认 Client，避免 else 嵌套
 	if !open {
 		return &http.Client{}
@@ -15,8 +15,8 @@ func Proxyclient(open bool, proxyattr string) *http.Client {
 
 	//默认地址：v2ray的监听端口
 	URL := "http://127.0.0.1:10808"
-	if len(proxyattr)!=0{
-		URL = proxyattr
+	if len(proxyattr)>0&&proxyattr[0]!=""{
+		URL = proxyattr[0]
 	}
 
 	proxyURL, err := url.Parse(URL)
