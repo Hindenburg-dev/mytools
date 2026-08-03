@@ -13,7 +13,7 @@ func Proxyclient(open bool, proxyattr string) *http.Client {
 		return &http.Client{}
 	}
 
-	//默认地址URL
+	//默认地址：v2ray的监听端口
 	URL := "http://127.0.0.1:10808"
 	if len(proxyattr)!=0{
 		URL = proxyattr
