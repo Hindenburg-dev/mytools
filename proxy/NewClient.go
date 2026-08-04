@@ -7,7 +7,7 @@ import (
 )
 
 // Proxy 根据 open 状态返回对应的 http.Client
-func Proxyclient(open bool, proxyattr ...string) *http.Client {
+func NewClient(open bool, proxyattr ...string) *http.Client {
 	// 不开代理直接返回默认 Client，避免 else 嵌套
 	if !open {
 		return &http.Client{}
